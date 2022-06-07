@@ -45,7 +45,7 @@ enviar.addEventListener("click", () => {
 })
 
 function resultado(precio, cuotas) {
-    let valor = DineroIngresado / select
-    alert("Va a pagar : " + valor)
+    let valor = DineroIngresado.value / select.value
+    alert("Va a pagar : " + valor + " al mes")
 }
 
