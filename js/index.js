@@ -7,7 +7,7 @@ precio.innerHTML = '<label>INGRESE PRECIO DE VENTA EN UN PAGO</label> <input typ
 document.body.appendChild(precio)
 
 const cuotas = document.createElement("div")
-cuotas.innerHTML = `<label>SELECIONE LOS MESES A PAGAR</label> <select>
+cuotas.innerHTML = `<label>SELECIONE LOS MESES A PAGAR</label> <select id=select>
 <option disabled="" value="">Selecciona un valor</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -40,11 +40,12 @@ const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
-enviar.addEventListener("enviar", () => {
-    resultado(document.getElementById("precio").value,)
+enviar.addEventListener("click", () => {
+    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value)
 })
 
 function resultado(precio, cuotas) {
-    let valor = precio / cuotas
-    alert("Va a pagar :" + precio.value)
+    let valor = DineroIngresado / select
+    alert("Va a pagar : " + valor)
 }
+
