@@ -48,4 +48,7 @@ function resultado(precio, cuotas) {
     let valor = DineroIngresado.value / select.value
     alert("Va a pagar : " + valor + " al mes")
     localStorage.setItem("valor", valor)
+
+    const ternario = (isNaN(DineroIngresado.value)) ? true : false
+    ternario ? alert("El valor introducido no es válido") : alert("Operación éxitosa")
 }
