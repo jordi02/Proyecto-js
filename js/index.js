@@ -3,7 +3,7 @@ mensaje.innerText = "Calcula tus cuotas"
 document.body.appendChild(mensaje)
 
 const precio = document.createElement("div")
-precio.innerHTML = '<label>INGRESE PRECIO DE VENTA EN UN PAGO</label> <input type=numeric id=DineroIngresado>'
+precio.innerHTML = '<label>INGRESE PRECIO DE VENTA EN UN PAGO</label> <input type=number id=DineroIngresado>'
 document.body.appendChild(precio)
 
 const cuotas = document.createElement("div")
@@ -35,20 +35,24 @@ cuotas.innerHTML = `<label>SELECIONE LOS MESES A PAGAR</label> <select id=select
 </select> `
 document.body.appendChild(cuotas)
 
+const porcentaje = document.createElement("div")
+porcentaje.innerHTML = '<label>Ingrese el porcentaje de interes de sus cuotas</label> <input type=number id=PorcentajeIngresado>'
+document.body.appendChild(porcentaje)
+
 
 const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
 enviar.addEventListener("click", () => {
-    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value)
+    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
 })
 
-function resultado(precio, cuotas) {
-    let valor = DineroIngresado.value / select.value
+function resultado() {
+    let valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
     alert("Va a pagar : " + valor + " al mes")
     localStorage.setItem("valor", valor)
 
-    const ternario = (isNaN(DineroIngresado.value)) ? true : false
-    ternario ? alert("El valor introducido no es válido") : alert("Operación éxitosa")
+    const ternario = (isNaN(DineroIngresado.value)) ? alert("El valor introducido no es válido") : alert("Operación éxitosa")
+
 }
