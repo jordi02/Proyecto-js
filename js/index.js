@@ -46,13 +46,16 @@ document.body.appendChild(enviar)
 
 enviar.addEventListener("click", () => {
     resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
+
 })
 
 function resultado() {
     let valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
-    alert("Va a pagar : " + valor + " al mes")
-    localStorage.setItem("valor", valor)
 
-    const ternario = (isNaN(DineroIngresado.value)) ? alert("El valor introducido no es válido") : alert("Operación éxitosa")
+    localStorage.setItem("valor", valor)
+    const generador = document.createElement("div")
+    generador.innerHTML = "<h1>${valor}</h1>"
+    document.body.appendChild(generador)
+
 
 }
