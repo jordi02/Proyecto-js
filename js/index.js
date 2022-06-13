@@ -47,14 +47,20 @@ document.body.appendChild(enviar)
 enviar.addEventListener("click", () => {
     resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
 
+    Toastify({
+        text: "Operacion exitosa",
+        duration: 2000,
+        gravity: `bottom`,
+        position: `rigth`,
+    }).showToast()
+
 })
 
 function resultado() {
     let valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
-
     localStorage.setItem("valor", valor)
     const generador = document.createElement("div")
-    generador.innerHTML = "<h1>${valor}</h1>"
+    generador.innerHTML = `<h1>Tendrá que pagar ${valor} por mes </h1>`
     document.body.appendChild(generador)
 
 
