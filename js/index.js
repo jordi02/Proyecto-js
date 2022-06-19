@@ -26,17 +26,6 @@ const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
-enviar.addEventListener("click", () => {
-    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
-
-    Toastify({
-        text: "Operacion exitosa",
-        duration: 2000,
-        gravity: `bottom`,
-        position: `right`,
-    }).showToast()
-
-})
 
 function resultado() {
     let valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
@@ -48,3 +37,44 @@ function resultado() {
 
 
 }
+
+
+
+
+
+enviar.addEventListener("click", () => {
+    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
+
+    let table = document.createElement("div")
+    let CrearTabla = "<table class=table>"
+    CrearTabla += `
+    <thead>
+        <tr>
+            <th scope="col">Operacion</th>
+            <th scope="col">VALOR INSERTADO</th>
+            <th scope="col">MESES</th>
+            <th scope="col">PORCENTAJE</th>
+            <th scope="col">A PAGAR POR MES</th>
+            <th scope="col">TOTAL</th>
+        </tr>
+    </thead>`
+    CrearTabla += `<tr>
+        <th scope="row"></th>
+        <td>${DineroIngresado.value}</td>
+        <td>${select.value}</td>
+        <td>${PorcentajeIngresado.value}</td>
+        <td></td>
+    </tr>`
+    CrearTabla += "</table>"
+    table.innerHTML = CrearTabla
+    document.body.appendChild(table)
+
+    Toastify({
+        text: "Operacion exitosa",
+        duration: 2000,
+        gravity: `bottom`,
+        position: `right`,
+    }).showToast()
+
+})
+
