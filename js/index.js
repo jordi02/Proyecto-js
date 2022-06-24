@@ -26,25 +26,25 @@ const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
-
+let mama = 0
+let valor = 0
 function resultado() {
-    let valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
+    valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
     localStorage.setItem("valor", valor)
     const local = localStorage.getItem(`valor`)
     const generador = document.createElement("div")
     generador.innerHTML = `<h1>Tendrá que pagar ${local} por mes </h1>`
     document.body.appendChild(generador)
-
+    mama = Number(local) * Number(select.value)
+    console.log(mama)
 
 }
 
 
 
 
-
 enviar.addEventListener("click", () => {
-    resultado(document.getElementById("DineroIngresado").value, document.getElementById("select").value, document.getElementById("PorcentajeIngresado").value)
-
+    resultado()
     let table = document.createElement("div")
     let CrearTabla = "<table class=table>"
     CrearTabla += `
@@ -63,11 +63,13 @@ enviar.addEventListener("click", () => {
         <td>${DineroIngresado.value}</td>
         <td>${select.value}</td>
         <td>${PorcentajeIngresado.value}</td>
-        <td></td>
+        <td>${valor}</td>
+        <td>${mama}</td>
     </tr>`
     CrearTabla += "</table>"
     table.innerHTML = CrearTabla
     document.body.appendChild(table)
+
 
     Toastify({
         text: "Operacion exitosa",
@@ -77,8 +79,18 @@ enviar.addEventListener("click", () => {
     }).showToast()
 
 })
-fetch('https://pokeapi.co/api/v2/')
-    // Exito
-    .then(response => response.json())  // convertir a json
-    .then(json => console.log(json))    //imprimir los datos en la consola
-    .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
+
+fetch('/catalogo.json',)
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((producto) => {
+            console.log(producto.precio)
+            console.log(producto.nombre)
+        })
+    })
+
+
+
+
+
+
