@@ -6,7 +6,7 @@ const precio = document.createElement("div")
 precio.innerHTML = '<label>INGRESE PRECIO DE VENTA EN UN PAGO</label> <input type=number id=DineroIngresado>'
 document.body.appendChild(precio)
 
-let cuotas2 = document.createElement("div")
+let cuotas = document.createElement("div")
 let opciones = "<label>Seleccione las cuotas a pagar </label><select id=select>"
 
 for (let i = 1; i <= 24; i++) {
@@ -14,8 +14,8 @@ for (let i = 1; i <= 24; i++) {
     opciones += `<option value=${i}>${i}</option>`
 }
 opciones += "</select>"
-cuotas2.innerHTML = opciones
-document.body.appendChild(cuotas2)
+cuotas.innerHTML = opciones
+document.body.appendChild(cuotas)
 
 const porcentaje = document.createElement("div")
 porcentaje.innerHTML = '<label>Ingrese el porcentaje de interes de sus cuotas</label> <input type=number id=PorcentajeIngresado>'
@@ -26,7 +26,7 @@ const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
-let mama = 0
+let total = 0
 let valor = 0
 function resultado() {
     valor = (Number(DineroIngresado.value * PorcentajeIngresado.value / 100) + Number(DineroIngresado.value)) / Number(select.value)
@@ -35,8 +35,8 @@ function resultado() {
     const generador = document.createElement("div")
     generador.innerHTML = `<h1>Tendrá que pagar ${local} por mes </h1>`
     document.body.appendChild(generador)
-    mama = Number(local) * Number(select.value)
-    console.log(mama)
+    total = Number(local) * Number(select.value)
+    console.log(total)
 
 }
 
@@ -64,7 +64,7 @@ enviar.addEventListener("click", () => {
         <td>${select.value}</td>
         <td>${PorcentajeIngresado.value}</td>
         <td>${valor}</td>
-        <td>${mama}</td>
+        <td>${total}</td>
     </tr>`
     CrearTabla += "</table>"
     table.innerHTML = CrearTabla
