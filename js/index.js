@@ -3,13 +3,13 @@ mensaje.innerText = "Calcula tus cuotas"
 document.body.appendChild(mensaje)
 
 const precio = document.createElement("div")
-precio.innerHTML = '<label>INGRESE PRECIO DE VENTA EN UN PAGO</label> <input type=number id=DineroIngresado>'
+precio.innerHTML = '<label>INGRESE EL MONTO TOTAL</label> <input type=number id=DineroIngresado>'
 document.body.appendChild(precio)
 
 let cuotas = document.createElement("div")
-let opciones = "<label>Seleccione las cuotas a pagar </label><select id=select>"
+let opciones = "<label>SELECCIONE LA CANTIDAD DE CUOTAS </label><select id=select>"
 
-for (let i = 1; i <= 24; i++) {
+for (let i = 1; i <= 48; i++) {
 
     opciones += `<option value=${i}>${i}</option>`
 }
@@ -18,7 +18,7 @@ cuotas.innerHTML = opciones
 document.body.appendChild(cuotas)
 
 const porcentaje = document.createElement("div")
-porcentaje.innerHTML = '<label>Ingrese el porcentaje de interes de sus cuotas</label> <input type=number id=PorcentajeIngresado>'
+porcentaje.innerHTML = '<label>INGRESE EL PORCENTAJE</label> <input type=number id=PorcentajeIngresado>'
 document.body.appendChild(porcentaje)
 
 
@@ -39,15 +39,16 @@ function resultado() {
 
 
 
-
 enviar.addEventListener("click", () => {
     resultado()
     let table = document.createElement("div")
+    table.innerHTML = ""
+
     let CrearTabla = "<table class=table>"
     CrearTabla += `
     <thead>
         <tr>
-            <th scope="col">Operacion</th>
+            <th scope="col">OPERACION</th>
             <th scope="col">VALOR INSERTADO</th>
             <th scope="col">MESES</th>
             <th scope="col">PORCENTAJE</th>
