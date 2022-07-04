@@ -1,13 +1,26 @@
-
 // TITULO
 const mensaje = document.createElement("h1")
 mensaje.innerText = "Calcula tus cuotas"
 document.body.appendChild(mensaje)
 
+
+// INPUT
+const nombre = document.createElement("div")
+nombre.innerHTML = '<label>INGRESE UN NOMBRE</label> <input  id=NombreIngresado>'
+document.body.appendChild(nombre)
+
+
 // INPUT
 const precio = document.createElement("div")
 precio.innerHTML = '<label>INGRESE EL MONTO TOTAL</label> <input type=number id=DineroIngresado>'
 document.body.appendChild(precio)
+
+
+// INPUT
+const porcentaje = document.createElement("div")
+porcentaje.innerHTML = '<label>INGRESE EL PORCENTAJE</label> <input type=number id=PorcentajeIngresado>'
+document.body.appendChild(porcentaje)
+
 
 // SELECT
 let cuotas = document.createElement("div")
@@ -21,10 +34,6 @@ opciones += "</select>"
 cuotas.innerHTML = opciones
 document.body.appendChild(cuotas)
 
-// INPUT
-const porcentaje = document.createElement("div")
-porcentaje.innerHTML = '<label>INGRESE EL PORCENTAJE</label> <input type=number id=PorcentajeIngresado>'
-document.body.appendChild(porcentaje)
 
 // SEND BOTON
 const enviar = document.createElement("div")
@@ -54,7 +63,7 @@ enviar.addEventListener("click", () => {
     CrearTabla += `
     <thead>
         <tr>
-            <th scope="col">OPERACION</th>
+            <th scope="col">NOMBRE</th>
             <th scope="col">VALOR INSERTADO</th>
             <th scope="col">MESES</th>
             <th scope="col">PORCENTAJE</th>
@@ -63,7 +72,7 @@ enviar.addEventListener("click", () => {
         </tr>
     </thead>`
     CrearTabla += `<tr>
-        <th scope="row"></th>
+        <th scope="row">${NombreIngresado.value}</th>
         <td>${DineroIngresado.value}</td>
         <td>${select.value}</td>
         <td>${PorcentajeIngresado.value}</td>
@@ -85,14 +94,14 @@ enviar.addEventListener("click", () => {
 })
 
 // FETCH
-fetch('/catalogo.json',)
+fetch('/historial.json',)
     .then((res) => res.json())
     .then((data) => {
-        data.forEach((producto) => {
-            console.log(producto.precio)
-            console.log(producto.nombre)
-        })
+
+        console.log(data)
+
     })
+
 
 
 

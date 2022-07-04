@@ -1,0 +1,34 @@
+[
+    {
+        "Nombre": "Juan",
+        "ValorIngresado": "230000",
+        "Meses": "12",
+        "Porcentaje": "5",
+        "A PAGAR POR MES": "20125",
+        "TOTAL": "241500"
+    },
+    {
+        "Nombre": "Jorge",
+        "ValorIngresado": "100000",
+        "Meses": "6",
+        "Porcentaje": "5",
+        "A PAGAR POR MES": "17500",
+        "TOTAL": "105000"
+    },
+    {
+        "Nombre": "Jose",
+        "ValorIngresado": "20000",
+        "Meses": "6",
+        "Porcentaje": "5",
+        "A PAGAR POR MES": "3400",
+        "TOTAL": "20400"
+    },
+    {
+        "Nombre": "Pedro",
+        "ValorIngresado": "500000",
+        "Meses": "48",
+        "Porcentaje": "10",
+        "A PAGAR POR MES": "11458",
+        "TOTAL": "550000"
+    }
+]
