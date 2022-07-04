@@ -91,6 +91,12 @@ enviar.addEventListener("click", () => {
         position: `right`,
     }).showToast()
 
+
+    // EASTER EGG
+    if (NombreIngresado.value
+        === "admin") {
+        alert("ERES ADMINISTRADOR, PERO NO SIRVE DE NADA")
+    }
 })
 
 // FETCH
