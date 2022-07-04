@@ -1,11 +1,15 @@
+
+// TITULO
 const mensaje = document.createElement("h1")
 mensaje.innerText = "Calcula tus cuotas"
 document.body.appendChild(mensaje)
 
+// INPUT
 const precio = document.createElement("div")
 precio.innerHTML = '<label>INGRESE EL MONTO TOTAL</label> <input type=number id=DineroIngresado>'
 document.body.appendChild(precio)
 
+// SELECT
 let cuotas = document.createElement("div")
 let opciones = "<label>SELECCIONE LA CANTIDAD DE CUOTAS </label><select id=select>"
 
@@ -17,15 +21,17 @@ opciones += "</select>"
 cuotas.innerHTML = opciones
 document.body.appendChild(cuotas)
 
+// INPUT
 const porcentaje = document.createElement("div")
 porcentaje.innerHTML = '<label>INGRESE EL PORCENTAJE</label> <input type=number id=PorcentajeIngresado>'
 document.body.appendChild(porcentaje)
 
-
+// SEND BOTON
 const enviar = document.createElement("div")
 enviar.innerHTML = `<input id="enviar" type="submit" value="ENVIAR">`
 document.body.appendChild(enviar)
 
+// FUNCIONES 
 let total = 0
 let valor = 0
 function resultado() {
@@ -38,7 +44,7 @@ function resultado() {
 }
 
 
-
+// ENVENTO
 enviar.addEventListener("click", () => {
     resultado()
     let table = document.createElement("div")
@@ -78,6 +84,7 @@ enviar.addEventListener("click", () => {
 
 })
 
+// FETCH
 fetch('/catalogo.json',)
     .then((res) => res.json())
     .then((data) => {
